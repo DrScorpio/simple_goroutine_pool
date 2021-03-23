@@ -33,7 +33,7 @@ func NewGoroutinePool(core int32, max int32, queueSize int32,
 }
 
 //atomicOper 原子化线程池操作
-func (pool *GoroutinePool) atomicOper(f func() bool) bool{
+func (pool *GoroutinePool) atomicOper(f func() bool) bool {
 	pool.mu.Lock()
 	defer pool.mu.Unlock()
 	return f()
